@@ -15,6 +15,7 @@ set(HEADERS
     test/alertTest/alertscontroller.hpp
     test/alertTest/alertmodel.hpp
     include/alertgenerator.hpp
+    include/delaywidgetcontroller.hpp
     include/timeprofiler.hpp
     )
 
@@ -24,6 +25,7 @@ set(SOURCES
     test/alertTest/alertmodel.cpp
     test/alertTest/testfile.cpp
     src/alertgenerator.cpp
+    src/delaywidgetcontroller.cpp
     src/timeprofiler.cpp
     )
 

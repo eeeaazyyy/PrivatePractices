@@ -1,14 +1,23 @@
 #include <graphicseditor.hpp>
 
+#include "QLineEdit"
+
 #include "mainwindow.hpp"
 
+#include "include/delaywidgetcontroller.hpp"
 #include "test/alertTest/alertmodel.hpp"
 
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
-    //auto* editor = new GraphicsEditor;
-    
-    AlertModel* model = new AlertModel(this);
+    QLineEdit* edit = new QLineEdit(this);
+    auto *delayUtil = new DelayWidgetController(edit, &QLineEdit::textChanged, edit);
 
-    //setCentralWidget(editor);
+    connect(delayUtil, SIGNAL(requestDelay()), this, SLOT(checkSlot()));
+
+    setCentralWidget(edit);
+}
+
+
+void MainWindow::checkSlot() {
+    qInfo() << "CheckSlot CheckSlot";
 }

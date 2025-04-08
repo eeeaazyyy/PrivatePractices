@@ -184,15 +184,16 @@ void AlertModel::checkItems() {
         }
 
         QList<QUuid> listId = item.id();
-        {
-            utils::TimeProfiler profHash("HashContain");
-            hashContain(ids);
-            timeHash_ += profHash.elapsed();
-        }
+        
         {
             utils::TimeProfiler profMultiHash("MultiHashContain");
             multiHashContain(listId);
             timeMultiHash_ += profMultiHash.elapsed();
+        }
+        {
+            utils::TimeProfiler profHash("HashContain");
+            hashContain(ids);
+            timeHash_ += profHash.elapsed();
         }
     }
 
